@@ -1,0 +1,276 @@
+@import url("https://fonts.googleapis.com/css2?family=Gelasio&family=Inter:wght@400;500&display=swap");
+@import "@flaticon/flaticon-uicons/css/all/all";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.light {
+  --white: #ffffff;
+  --black: #242424;
+  --grey: #f3f3f3;
+  --dark-grey: #6b6b6b;
+  --red: #ff4e4e;
+  --transparent: transparent;
+  --twitter: #1da1f2;
+  --purple: #8b46ff;
+  --blue: #191f45;
+  --yellow: #ffedc2;
+}
+
+.natural {
+  /* grey */
+  --0: #ffffff;
+  --10: #f6f6f6;
+  --50: #f0f0f0;
+  --100: #e0e0e0;
+  --200: #c2c2c2;
+  --300: #a3a3a3;
+  --400: #858585;
+  --500: #666666;
+  --600: #525252;
+  --700: #3d3d3d;
+  --800: #292929;
+  --900: #141414;
+  --1000: #000000;
+
+  /* blue */
+  --100: #d3d4de;
+  --200: #a6a9be;
+  --300: #7a7f9d;
+  --400: #4d547d;
+  --500: #21295c;
+  --600: #191f45;
+  --700: #141937;
+  --800: #0d1025;
+  --900: #070812;
+
+  /* yellow */
+  --50: #f0f0f0;
+  --100: #fff6e0;
+  --200: #ffedc2;
+  --300: #ffe3a3;
+  --400: #ffda85;
+  --500: #ffd166;
+  --600: #cca752;
+  --700: #997d3d;
+  --800: #665429;
+  --900: #332a14;
+  --1000: #fab1a0;
+  --1001: #ffeaa7;
+}
+
+.dark {
+  --white: #242424;
+  --black: #f3f3f3;
+  --grey: #2a2a2a;
+  --dark-grey: #e7e7e7;
+  --red: #991f1f;
+  --transparent: transparent;
+  --twitter: #0e71a8;
+  --purple: #582cbe;
+}
+
+@layer utilities {
+  .section-min-height {
+    min-height: calc(100vh - 64px);
+  }
+
+  * {
+    @apply m-0 p-0 box-border text-base outline-purple/30 duration-100;
+  }
+
+  html {
+    @apply overflow-x-hidden;
+  }
+
+  body {
+    @apply font-inter font-normal text-black bg-[#f3f3f3] dark:bg-[#141937];
+  }
+
+  i {
+    @apply mt-0.5;
+  }
+
+  section {
+    @apply py-4 px-[3vw] md:px-[5vw] lg:px-[10vw];
+  }
+
+  ::selection {
+    @apply bg-purple/30;
+  }
+
+  img {
+    @apply w-full h-full object-cover;
+  }
+
+  .navbarEl {
+    @apply sticky top-0 flex items-center gap-12 max-md:gap-5 w-full px-[1rem] py-5 h-[80px] border-b border-[#f1acc9] bg-[#f3f3f3] dark:bg-[#191f45] z-50;
+  }
+
+  .h-cover {
+    @apply min-h-[calc(100vh-80px)];
+  }
+
+  .center {
+    @apply block mx-auto;
+  }
+
+  .btn-dark {
+    @apply whitespace-nowrap bg-black text-white rounded-full py-2 px-6 text-xl capitalize hover:bg-opacity-80;
+  }
+
+  .btn-yellow {
+    @apply whitespace-nowrap bg-[#f1acc9] hover:bg-[#fab1a0] text-black rounded-lg py-2 px-6 text-xl capitalize flex gap-2 items-center;
+  }
+
+  .btn-dark:disabled,
+  .btn-dark:hover:disabled,
+  .btn-dark:active:disabled {
+    @apply bg-[#ccc] text-[#979797] border-[#ccc] cursor-not-allowed;
+  }
+
+  .input-box {
+    @apply w-[100%] rounded-md p-4 bg-grey pl-12 border border-grey focus:bg-transparent placeholder:text-black;
+  }
+
+  .input-box-tag {
+    @apply w-[100%] rounded-md p-4 bg-white pl-12 border border-grey focus:bg-transparent placeholder:text-black;
+  }
+
+  input:disabled,
+  input:disabled ~ .input-icon {
+    @apply opacity-50;
+  }
+  input::placeholder {
+    @apply opacity-50 font-semibold;
+  }
+
+  .invalid-input label,
+  .invalid-input p {
+    @apply text-red;
+  }
+
+  .invalid-input input,
+  .invalid-input textarea {
+    @apply border-red bg-[#ffd1d1];
+  }
+
+  .input-icon {
+    @apply absolute left-4 top-1/2 -translate-y-1/2 opacity-75;
+  }
+
+  .input-icon-left {
+    @apply absolute left-4 top-1/2 -translate-y-1/2 opacity-75;
+  }
+
+  .input-icon-right {
+    @apply absolute right-4 top-1/2 -translate-y-1/2 opacity-75;
+  }
+
+  .link {
+    @apply text-dark-grey hover:text-black hover:bg-grey p-3 px-4 block opacity-75;
+  }
+
+  .hide {
+    @apply opacity-0 pointer-events-none duration-100;
+  }
+
+  .show {
+    @apply opacity-100 pointer-events-auto;
+  }
+
+  .sidebar-link {
+    @apply flex gap-10 px-10 py-2 text-dark-grey dark:text-[#f3f3f3] bg-transparent hover:bg-[#f1f2f6]/70 dark:hover:bg-[#a6a9be]/30 hover:text-black transition-all duration-500;
+  }
+
+  .sidebar-link.active {
+    @apply text-white dark:text-black bg-[#991f1f] dark:bg-[#fab1a0];
+  }
+
+  .dashboard-link {
+    @apply flex gap-4 items-center py-5 bg-transparent hover:bg-[#f1f2f6] text-dark-grey hover:text-black transition-all duration-500;
+  }
+
+  .dashboard-link.active {
+    @apply pl-4 bg-[#884c97] text-black;
+  }
+
+  .header {
+    @apply font-inter text-4xl leading-normal uppercase text-dark-grey dark:text-[#f0f0f0] font-bold max-md:text-3xl max-md:leading-snug !important;
+  }
+
+  /* h3 {
+    @apply font-inter text-3xl leading-loose max-md:text-2xl max-md:leading-normal !important;
+  } */
+
+  .content {
+    @apply font-gelasio text-xl leading-10 md:text-2xl;
+  }
+
+  .content a {
+    @apply text-purple underline hover:opacity-50;
+  }
+
+  .tag {
+    @apply p-3 bg-grey rounded-full px-6 capitalize;
+  }
+
+  .blog-title {
+    @apply text-2xl font-medium leading-7 line-clamp-3 sm:line-clamp-2;
+  }
+
+  .blog-index {
+    @apply text-4xl sm:text-3xl lg:text-5xl font-bold text-grey leading-none;
+  }
+}
+
+body {
+  --color-grey-50: hsl(265, 55%, 96%);
+  --color-grey-100: hsl(265, 19%, 88%);
+  --color-grey-200: hsl(265, 7%, 70%);
+  --color-grey-300: hsl(265, 6%, 66%);
+  --color-grey-400: hsl(265, 4%, 57%);
+  --color-grey-500: hsl(265, 3%, 53%);
+  --color-grey-600: hsl(265, 4%, 42%);
+  --color-grey-700: hsl(265, 4%, 31%);
+  --color-grey-800: hsl(276, 5%, 20%);
+  --color-grey-900: hsl(280, 5%, 13%);
+
+  --color-primary-50: #c8b3ce;
+  --color-primary-100: #a07aaa;
+  --color-primary-200: #884c97;
+  --color-primary-300: #843897;
+  --color-primary-400: #732392;
+  --color-primary-500: #5a097a;
+  --color-primary-600: #480264;
+  --color-primary-700: #3d0264;
+
+  --color-success-100: #a2f0bc;
+  --color-success-500: #12bd4b;
+
+  --color-error-100: #f1acc9;
+  --color-error-500: #a10c4a;
+
+  --size-1: 0.25rem;
+  --size-2: 0.5rem;
+  --size-3: 0.75rem;
+  --size-4: 1rem;
+  --size-5: 1.25rem;
+  --size-6: 1.5rem;
+  --size-8: 2rem;
+  --size-16: 4rem;
+  --size-20: 5rem;
+  --size-40: 10rem;
+
+  --max-width: 1100px;
+  --border-radius: 12px;
+
+  font-family: "Open Sans", "Lato", sans-serif;
+}
+
+:root {
+  --primary: #414141;
+  --secondary: #972dc2;
+  --tertiary: #18e0d0;
+}
